@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+
+        <h:body>
+
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+
+                    <h:form><font></font>
+                        <p:panel header="Validate"><font></font>
+                            <p:messages /><font></font>
+                            <font></font>
+                            <h:panelGrid columns="4" cellpadding="5"><font></font>
+                                <p:outputLabel for="@next" value="Name: (@Size(min=2,max=5))" /><font></font>
+                                <p:inputText value="#{beanValidationView.name}" label="Name"/><font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText value="#{beanValidationView.name}" /><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Age: (@Min(10) @Max(20))" /><font></font>
+                                <p:inputText value="#{beanValidationView.age}" label="Age"/><font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText value="#{beanValidationView.age}" /><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Amount: (@DecimalMax('99.9'))" /><font></font>
+                                <p:inputText value="#{beanValidationView.amount}" label="Amount"/><font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText value="#{beanValidationView.amount}" /><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Amount: (@Digits(integer=3,fraction=2))" /><font></font>
+                                <p:inputText value="#{beanValidationView.amount2}" label="Amount 2"/><font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText value="#{beanValidationView.amount2}" /><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Pattern: (@Pattern(regexp='^[-+]?\\d+$'))" /><font></font>
+                                <p:inputText value="#{beanValidationView.pattern}" label="pattern"/><font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText value="#{beanValidationView.pattern}" /><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Assert: (@AssertTrue)" /><font></font>
+                                <p:selectBooleanCheckbox value="#{beanValidationView.checked}" /><font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText/><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Date (@Past)"/>                                <font></font>
+                                <p:inputText value="#{beanValidationView.pastDate}"><font></font>
+                                    <f:convertDateTime pattern="MM/dd/yyyy" /><font></font>
+                                </p:inputText> <font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText/><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Date (@Future)"/>                                <font></font>
+                                <p:inputText value="#{beanValidationView.futureDate}"><font></font>
+                                    <f:convertDateTime pattern="MM/dd/yyyy" /><font></font>
+                                </p:inputText> <font></font>
+                                <p:message for="@previous" /><font></font>
+                                <h:outputText/><font></font>
+                                <font></font>
+                                <p:outputLabel for="@next" value="Radio Input"/><font></font>
+                                <p:selectOneRadio value="#{beanValidationView.bool}"><font></font>
+                                    <f:selectItem itemValue="#{true}" itemLabel="True"/><font></font>
+                                    <f:selectItem itemValue="#{false}" itemLabel="False"/><font></font>
+                                </p:selectOneRadio><font></font>
+                                <p:message for="@previous"/><font></font>
+                                <h:outputText/><font></font>
+                                <font></font>
+                            </h:panelGrid><font></font>
+                            <font></font>
+                            <p:commandButton value="Save" ajax="false" icon="pi pi-check" validateClient="true"/><font></font>
+                        </p:panel><font></font>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Welcome to PrimeFaces
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+
